@@ -176,6 +176,16 @@ function submitForm(event) {
     return;
   }
 
+  const allData = getData(); // getting existing data
+  const { exists, index } = checkIsExisting(allData, id);
+
+  const idField = document.getElementById("id");
+  if (!idField.disabled === true && exists) {
+    alert("Student id cannot be duplicate");
+    idField.focus();
+    return;
+  }
+
   const newRecord = { id, name, email, contact };
   addRecord(newRecord);
 
