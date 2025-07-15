@@ -81,8 +81,8 @@ function addRowToTable(record) {
 
   //adding delete button
   const deleteCell = document.createElement("td");
-  const deleteBtn = document.createElement("button");
-  deleteBtn.innerHTML = `<i class="fas fa-trash"></i>`;
+  const deleteBtn = document.createElement("span");
+  deleteBtn.innerHTML = `<i class="fas fa-trash deleteBtn"></i>`;
   deleteBtn.onclick = (e) => {
     e.preventDefault();
     deleteRecordById(record.id);
@@ -92,8 +92,8 @@ function addRowToTable(record) {
 
   //adding edit button
   const editCell = document.createElement("td");
-  const editBtn = document.createElement("button");
-  editBtn.innerHTML = `<i class="fas fa-edit"></i>`;
+  const editBtn = document.createElement("span");
+  editBtn.innerHTML = `<i class="fas fa-edit editBtn"></i>`;
   editBtn.onclick = (e) => {
     e.preventDefault();
     onEditClick(record);
