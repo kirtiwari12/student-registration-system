@@ -152,10 +152,16 @@ function submitForm(event) {
   const form = event.target;
 
   // Get values
-  const id = form.id.value;
-  const name = form.name.value;
-  const email = form.email.value;
-  const contact = form.contact.value;
+  const id = form.id.value.trim();
+  const name = form.name.value.trim();
+  const email = form.email.value.trim();
+  const contact = form.contact.value.trim();
+
+  if (!name) {
+    // checking for blank space values
+    alert("Student name cannot be blank");
+    return;
+  }
 
   const newRecord = { id, name, email, contact };
   addRecord(newRecord);
