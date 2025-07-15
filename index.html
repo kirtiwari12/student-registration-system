@@ -8,6 +8,7 @@
   </head>
 
   <body>
+    <!-- Page Header -->
     <header class="header">
       <h1 class="headerTitle">Student Registration System</h1>
       <p class="headerDescription">
@@ -17,8 +18,42 @@
     </header>
 
     <div class="content">
-      <section class="studentDetailsForm"></section>
+      <!-- Student Details Form -->
+      <section class="studentDetailsForm">
+        <h2>Student Details Form</h2>
 
+        <form>
+          <div class="formInput">
+            <label for="studentId">Student ID</label>
+            <input id="studentId" type="number" step="1" min="1" required />
+          </div>
+
+          <div class="formInput">
+            <label for="name">Student name</label>
+            <input id="name" type="text" required />
+          </div>
+
+          <div class="formInput">
+            <label for="email">Student email</label>
+            <input id="email" type="email" required />
+          </div>
+
+          <div class="formInput">
+            <label for="contact">Student contact</label>
+            <input
+              id="contact"
+              type="number"
+              required
+              min="1000000000"
+              max="9999999999"
+            />
+          </div>
+
+          <button class="submitBtn" type="submit">Submit</button>
+        </form>
+      </section>
+
+      <!-- Student Details Table -->
       <section class="studentDetailsTable">
         <h2>Student Details Table</h2>
 

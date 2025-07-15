@@ -62,27 +62,37 @@
 // ];
 // localStorage.setItem("studentData", JSON.stringify(studentData));
 
-const studentData = JSON.parse(localStorage.getItem("studentData"));
-const tableBody = document.querySelector("#studentListTable tbody");
+// getting saved data from localstorage
+const localData = localStorage.getItem("studentData");
 
+// if local data does not exist exist initialize with empty array
+const studentData = localData ? JSON.parse(localData) : [];
+
+const tableBody = document.querySelector("#studentListTable tbody");
 for (let record of studentData) {
+  // creating new data row
   const newRow = document.createElement("tr");
 
+  // adding id in row
   const id = document.createElement("td");
   id.innerHTML = record.id;
   newRow.appendChild(id);
 
+  // adding name in row
   const name = document.createElement("td");
   name.innerHTML = record.name;
   newRow.appendChild(name);
 
+  // adding email in row
   const email = document.createElement("td");
   email.innerHTML = record.email;
   newRow.appendChild(email);
 
+  // adding contact in row
   const contact = document.createElement("td");
   contact.innerHTML = record.contact;
   newRow.appendChild(contact);
 
+  // appending newly created data row in table body
   tableBody.appendChild(newRow);
 }
