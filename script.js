@@ -290,13 +290,16 @@ function addRowToTable(record) {
   newRow.appendChild(contact);
 
   //adding delete button
+  const deleteCell = document.createElement("td");
   const deleteBtn = document.createElement("button");
+  deleteBtn.innerHTML = `<i class="fas fa-trash"></i>`;
   deleteBtn.onclick = (e) => {
     e.preventDefault();
     deleteRecordById(record.id);
   };
 
-  newRow.appendChild(deleteBtn);
+  deleteCell.appendChild(deleteBtn);
+  newRow.appendChild(deleteCell);
 
   // appending newly created data row in table body
   tableBody.appendChild(newRow);
