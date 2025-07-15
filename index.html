@@ -8,8 +8,34 @@
   </head>
 
   <body>
-    <header>
-      <h1>Student Registration System</h1>
+    <header class="header">
+      <h1 class="headerTitle">Student Registration System</h1>
+      <p class="headerDescription">
+        The system provides an easy and interactive way to enter and view
+        student details
+      </p>
     </header>
+
+    <div class="content">
+      <section class="studentDetailsForm"></section>
+
+      <section class="studentDetailsTable">
+        <h2>Student Details Table</h2>
+
+        <table id="studentListTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Contact</th>
+            </tr>
+          </thead>
+          <tbody class="tableBody"></tbody>
+        </table>
+      </section>
+    </div>
   </body>
+
+  <script src="script.js"></script>
 </html>

@@ -1,0 +1,64 @@
+body {
+  padding: 0px 50px 0px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerTitle {
+  text-align: center;
+}
+.headerDescription {
+  max-width: 300px;
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+}
+
+.content > section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border: 2px solid red;
+}
+
+.studentDetailsTable > table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0px 10px;
+}
+
+.studentDetailsTable > table thead th {
+  background-color: rgb(236, 201, 254);
+}
+
+.studentDetailsTable > table tbody td {
+  background-color: rgb(220, 254, 201);
+}
+
+.studentDetailsTable > table thead th:first-child,
+.studentDetailsTable > table tbody td:first-child {
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+.studentDetailsTable > table thead th:last-child,
+.studentDetailsTable > table tbody td:last-child {
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.studentDetailsTable > table th,
+.studentDetailsTable > table td {
+  text-align: center;
+  padding: 5px 10px;
+}
