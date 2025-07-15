@@ -74,33 +74,41 @@ body {
 }
 
 /* --------------------- student details table --------------------- */
-.studentDetailsTable > table {
+.tableWrapper {
+  width: 100%;
+  max-height: 450px;
+  overflow-y: auto;
+  scrollbar-width: 10px;
+  scrollbar-color: #888 transparent;
+}
+
+.studentDetailsTable table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0px 10px;
 }
 
-.studentDetailsTable > table thead th {
+.studentDetailsTable table thead th {
   background-color: rgb(236, 201, 254);
 }
 
-.studentDetailsTable > table tbody td {
+.studentDetailsTable table tbody td {
   background-color: rgb(220, 254, 201);
 }
 
-.studentDetailsTable > table thead th:first-child,
-.studentDetailsTable > table tbody td:first-child {
+.studentDetailsTable table thead th:first-child,
+.studentDetailsTable table tbody td:first-child {
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
 }
-.studentDetailsTable > table thead th:last-child,
-.studentDetailsTable > table tbody td:last-child {
+.studentDetailsTable table thead th:last-child,
+.studentDetailsTable table tbody td:last-child {
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
 }
 
-.studentDetailsTable > table th,
-.studentDetailsTable > table td {
+.studentDetailsTable table th,
+.studentDetailsTable table td {
   text-align: center;
   padding: 5px 10px;
 }
