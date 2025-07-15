@@ -29,25 +29,26 @@
       <section class="studentDetailsForm">
         <h2>Student Details Form</h2>
 
-        <form onsubmit="submitForm(event)">
+        <form id="studentForm" onsubmit="submitForm(event)">
           <div class="formInput">
-            <label for="studentId">Student ID</label>
-            <input id="studentId" type="number" step="1" min="1" required />
+            <label for="id">Student ID</label>
+            <input name="id" id="id" type="number" step="1" min="1" required />
           </div>
 
           <div class="formInput">
             <label for="name">Student name</label>
-            <input id="name" type="text" required />
+            <input name="name" id="name" type="text" required />
           </div>
 
           <div class="formInput">
             <label for="email">Student email</label>
-            <input id="email" type="email" required />
+            <input name="email" id="email" type="email" required />
           </div>
 
           <div class="formInput">
             <label for="contact">Student contact</label>
             <input
+              name="contact"
               id="contact"
               type="number"
               required
@@ -72,6 +73,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Contact</th>
+                <th></th>
                 <th></th>
               </tr>
             </thead>

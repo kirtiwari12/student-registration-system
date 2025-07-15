@@ -297,9 +297,19 @@ function addRowToTable(record) {
     e.preventDefault();
     deleteRecordById(record.id);
   };
-
   deleteCell.appendChild(deleteBtn);
   newRow.appendChild(deleteCell);
+
+  //adding edit button
+  const editCell = document.createElement("td");
+  const editBtn = document.createElement("button");
+  editBtn.innerHTML = `<i class="fas fa-edit"></i>`;
+  editBtn.onclick = (e) => {
+    e.preventDefault();
+    onEditClick(record);
+  };
+  editCell.appendChild(editBtn);
+  newRow.appendChild(editCell);
 
   // appending newly created data row in table body
   tableBody.appendChild(newRow);
@@ -329,10 +339,22 @@ function saveData(data) {
   localStorage.setItem("studentData", JSON.stringify(data));
 }
 
+function checkIsExisting(data, id) {
+  const index = data.findIndex((record) => record.id === id);
+  return { exists: index !== -1, index };
+}
+
 function addRecord(record) {
   const allData = getData(); // getting existing data
-  allData.push(record); // adding new record to existing data
+  const { exists, index } = checkIsExisting(allData, record.id);
+
+  if (!exists) {
+    allData.push(record); // adding new record to existing data
+  } else {
+    allData[index] = record;
+  }
   saveData(allData); // updating localstorage and table
+  loadInitialDataInTable(allData);
 }
 
 function submitForm(event) {
@@ -340,14 +362,41 @@ function submitForm(event) {
   const form = event.target;
 
   // Get values
-  const id = form.studentId.value;
+  const id = form.id.value;
   const name = form.name.value;
   const email = form.email.value;
   const contact = form.contact.value;
 
   const newRecord = { id, name, email, contact };
   addRecord(newRecord);
-  addRowToTable(newRecord);
 
+  form.elements.id.disabled = false; // enabling the input after an edit update
   event.target.reset(); // clearing out the form after saving values
+}
+
+function onEditClick(record) {
+  const form = document.getElementById("studentForm");
+
+  const hasAnyValue = Array.from(form.elements).some(
+    (input) => input.value.trim() !== ""
+  );
+
+  if (hasAnyValue) {
+    // take user confirmation to edit if form has values
+    const proceed = confirm(
+      "The current form values will be discarded. Do you want to continue to edit?"
+    );
+    if (!proceed) {
+      return;
+    }
+  }
+
+  for (const key in record) {
+    if (form.elements[key]) {
+      form.elements[key].value = record[key];
+    }
+    if (key === "id") {
+      form.elements[key].disabled = true;
+    }
+  }
 }
