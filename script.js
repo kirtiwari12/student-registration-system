@@ -256,9 +256,15 @@ function initializeLocalStorage() {
   }
 }
 
+function deleteRecordById(id) {
+  const allData = getData();
+  const newData = allData.filter((record) => record.id !== id);
+  saveData(newData);
+  loadInitialDataInTable(newData);
+}
+
 function addRowToTable(record) {
   const tableBody = document.querySelector("#studentListTable tbody");
-  const allData = getData();
 
   // creating new data row
   const newRow = document.createElement("tr");
@@ -285,11 +291,11 @@ function addRowToTable(record) {
 
   //adding delete button
   const deleteBtn = document.createElement("button");
-  deleteBtn.onclick = () => {
-    const newStudentData = allData.filter((data) => data.id !== record.id);
-    saveData(newStudentData);
-    loadInitialDataInTable();
+  deleteBtn.onclick = (e) => {
+    e.preventDefault();
+    deleteRecordById(record.id);
   };
+
   newRow.appendChild(deleteBtn);
 
   // appending newly created data row in table body
@@ -297,9 +303,9 @@ function addRowToTable(record) {
 }
 
 // function to load the data in table initially
-function loadInitialDataInTable() {
+function loadInitialDataInTable(data) {
   // getting saved data from localstorage
-  const allData = getData();
+  const allData = data ?? getData();
 
   const tableBody = document.querySelector("#studentListTable tbody");
   tableBody.replaceChildren(); // removing all existing rows
