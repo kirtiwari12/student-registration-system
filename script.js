@@ -1,72 +1,41 @@
-// const studentData = [
-//   {
-//     id: 101,
-//     name: "Name 1",
-//     email: "test1@email.com",
-//     contact: 8773322241,
-//   },
-//   {
-//     id: 102,
-//     name: "Name 2",
-//     email: "test2@email.com",
-//     contact: 8773322242,
-//   },
-//   {
-//     id: 103,
-//     name: "Name 3",
-//     email: "test3@email.com",
-//     contact: 8773322243,
-//   },
-//   {
-//     id: 104,
-//     name: "Name 4",
-//     email: "test4@email.com",
-//     contact: 8773322244,
-//   },
-//   {
-//     id: 105,
-//     name: "Name 5",
-//     email: "test5@email.com",
-//     contact: 8773322245,
-//   },
-//   {
-//     id: 106,
-//     name: "Name 6",
-//     email: "test6@email.com",
-//     contact: 8773322246,
-//   },
-//   {
-//     id: 107,
-//     name: "Name 7",
-//     email: "test7@email.com",
-//     contact: 8773322247,
-//   },
-//   {
-//     id: 108,
-//     name: "Name 8",
-//     email: "test8@email.com",
-//     contact: 8773322248,
-//   },
-//   {
-//     id: 109,
-//     name: "Name 9",
-//     email: "test9@email.com",
-//     contact: 8773322249,
-//   },
-//   {
-//     id: 110,
-//     name: "Name 10",
-//     email: "test10@email.com",
-//     contact: 8773322250,
-//   },
-// ];
-// localStorage.setItem("studentData", JSON.stringify(studentData));
+const testData = [
+  {
+    id: 101,
+    name: "Name 1",
+    email: "test1@email.com",
+    contact: 8773322241,
+  },
+  {
+    id: 102,
+    name: "Name 2",
+    email: "test2@email.com",
+    contact: 8773322242,
+  },
+  {
+    id: 103,
+    name: "Name 3",
+    email: "test3@email.com",
+    contact: 8773322243,
+  },
+  {
+    id: 104,
+    name: "Name 4",
+    email: "test4@email.com",
+    contact: 8773322244,
+  },
+  {
+    id: 105,
+    name: "Name 5",
+    email: "test5@email.com",
+    contact: 8773322245,
+  },
+];
 
 // getting saved data from localstorage
 const localData = localStorage.getItem("studentData");
 
 // if local data does not exist exist initialize with empty array
-const studentData = localData ? JSON.parse(localData) : [];
+const studentData = localData ? JSON.parse(localData) : testData;
 
 const tableBody = document.querySelector("#studentListTable tbody");
 for (let record of studentData) {
