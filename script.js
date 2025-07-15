@@ -110,6 +110,19 @@ function loadInitialDataInTable(data) {
   // getting saved data from localstorage
   const allData = data ?? getData();
 
+  const hasData = allData.length > 0;
+  const table = document.querySelector("#studentListTable");
+  const noRecordsMssg = document.querySelector(".noRecords");
+
+  // show no records message if no records are present
+  if (!hasData) {
+    table.style.display = "none";
+    noRecordsMssg.style.display = "block";
+    return;
+  }
+  table.style.display = "table";
+  noRecordsMssg.style.display = "none";
+
   const tableBody = document.querySelector("#studentListTable tbody");
   tableBody.replaceChildren(); // removing all existing rows
 

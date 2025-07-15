@@ -166,3 +166,10 @@ body {
   scale: 1.5;
   color: cyan;
 }
+
+.noRecords {
+  display: none;
+  font-size: xx-large;
+  color: white;
+  text-align: center;
+}
